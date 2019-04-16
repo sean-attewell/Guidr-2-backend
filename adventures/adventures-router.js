@@ -3,11 +3,11 @@ const router = require('express').Router();
 const Users = require('../helpers/users-model');
 const Adventures = require('../helpers/adventures-model');
 
-// const restricted = require('../auth/restricted-middleware.js');
+const restricted = require('../auth/restricted-middleware.js');
 // then has restricted as second param in function
 
 
-router.get('/', async (req, res) => {
+router.get('/', restricted, async (req, res) => {
   try {
     const allAdventures = await Adventures.findAll();
     res.status(200).json(allAdventures);
