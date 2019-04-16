@@ -14,7 +14,6 @@ function findAll() {
 function findById(id) {
   return db('users')
     .where({ id })
-    .first(); // this line not in c
 }
 
 async function add(user) {

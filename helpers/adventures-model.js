@@ -5,6 +5,7 @@ module.exports = {
   findById,
   add,
   remove,
+  update,
   getAdventuresForUserWithId
 };
 
@@ -16,7 +17,6 @@ function findAll() {
 function findById(id) {
   return db('adventures')
     .where({ id })
-    .first(); 
 }
 
 async function add(adventure) {
@@ -27,6 +27,13 @@ async function add(adventure) {
 
 async function remove(id) {
   return db('adventures').where({ id }).delete();
+}
+
+async function update(id, changes) {
+  return db('adventures')
+  .where('id', id)
+  .update(changes)
+  .then(count => (count > 0 ? findById(id) : null));
 }
 
 function getAdventuresForUserWithId(id) {
