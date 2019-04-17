@@ -7,7 +7,7 @@ const restricted = require('../auth/restricted-middleware.js');
 // then has restricted as second param in function
 // in function directly below
 
-router.get('/', async (req, res) => {
+router.get('/', restricted, async (req, res) => {
   try {
     const allAdventures = await Adventures.findAll();
     res.status(200).json(allAdventures);

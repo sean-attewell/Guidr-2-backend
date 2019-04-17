@@ -16,6 +16,7 @@ router.post('/register', (req, res) => {
       const token = tokenService.makeTokenFromUser(saved);
       res.status(201).json({
         saved,
+        id: saved[0].id,
         token
       });
     })
@@ -34,6 +35,7 @@ router.post('/login', (req, res) => {
         const token = tokenService.makeTokenFromUser(user);
         res.status(200).json({
           message: `Welcome ${user.username}!`,
+          id: user.id,
           token
         });
       } else {
