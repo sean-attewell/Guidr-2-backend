@@ -12,8 +12,8 @@ server.use('/api/users', usersRouter);
 server.use('/api/auth', authRouter);
 server.use('/api/adventures', adventuresRouter);
 
-server.get('/', (req, res) => {
-  res.send("Present.");
-});
+// server.get('/', (req, res) => {
+//   res.send("Present.");
+// });
 
 module.exports = server;
