@@ -4,7 +4,7 @@ const bcrypt = require('bcryptjs');
 const Users = require('../helpers/users-model');
 const hashPassword = require('../helpers/hashPassword');
 const tokenService = require('./token-service.js')
-require('dotenv').config();
+// require('dotenv').config();
 
 router.post('/register', (req, res) => {
   let user = req.body;

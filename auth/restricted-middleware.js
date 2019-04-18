@@ -5,8 +5,10 @@ require('dotenv').config();
 module.exports = (req, res, next) => {
   const token = req.headers.authorization;
 
+  const mySecret = process.env.SECRET || 'Heroku secret'
+
   if (token) {
-    jwt.verify(token, process.env.SECRET, (error, decodedToken) => { // callback lets us do stuff when verified
+    jwt.verify(token, mySecret, (error, decodedToken) => { // callback lets us do stuff when verified
       if (error) {
         res.status(401).json({ message: 'Not authorized! (invalid token)' });
       } else {

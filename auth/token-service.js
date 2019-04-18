@@ -5,6 +5,8 @@ module.exports = {
   makeTokenFromUser,
 }
 
+const mySecret = process.env.SECRET || 'Heroku secret'
+
 function makeTokenFromUser(user) {
   const payload = {
     subject: user.id,
@@ -14,6 +16,6 @@ function makeTokenFromUser(user) {
   const options = {
     expiresIn: '1h',
   }
-  const token = jwt.sign(payload, process.env.SECRET, options);
+  const token = jwt.sign(payload, mySecret, options);
   return token
 }
