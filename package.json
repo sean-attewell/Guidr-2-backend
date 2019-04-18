@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "cross-env DB_ENV=testing jest --watchAll --verbose",
     "server": "nodemon index.js"
   },
